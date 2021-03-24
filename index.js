@@ -29,5 +29,27 @@ function isPalindrome(myString) {
 };
 
 function addUpTo(array, index) {
-
+    if (index > 0) {
+        return array[index] + addUpTo(array, index - 1);
+    };
+    return array[0];
 };
+
+function maxOf(array) {
+    const lastIndex = array.length - 1
+    if (array.length > 1) {
+        return array[0] > array[lastIndex] ? maxOf(array.slice(0, lastIndex)) : maxOf(array.slice(1));
+    };
+    return array[0];
+};
+
+function includesNumber(array, number) {
+
+    if (array[0] === number) {
+        return true;
+    } else if (array.length > 1) {
+        return includesNumber(array.slice(1), number);
+    } else {
+        return false;
+    };
+}
